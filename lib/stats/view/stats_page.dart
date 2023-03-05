@@ -32,7 +32,7 @@ class StatsView extends StatelessWidget {
         title: Text(l10n.statsAppBarTitle),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ListTile(
             key: const Key('statsView_completedTodos_listTile'),
