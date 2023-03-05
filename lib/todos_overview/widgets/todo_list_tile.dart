@@ -47,20 +47,21 @@ class TodoListTile extends StatelessWidget {
                 ),
         ),
         subtitle: Text(
-          todo.description,
+          "Deadline: ${todo.description}",
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        leading: Checkbox(
+        leading: Icon(Icons.lightbulb_outlined),
+        trailing: Checkbox(
           shape: const ContinuousRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(8))),
+          checkColor: Color.fromARGB(255, 0, 153, 18),
+          // activeColor: Color.fromARGB(1, 13, 0, 134),
           value: todo.isCompleted,
           onChanged: onToggleCompleted == null
               ? null
               : (value) => onToggleCompleted!(value!),
         ),
-        trailing: onTap == null ? null : const Icon(Icons.chevron_right),
       ),
     );
   }
