@@ -100,14 +100,12 @@ class _TitleField extends StatelessWidget {
       key: const Key('editTodoView_title_textFormField'),
       initialValue: state.title,
       decoration: InputDecoration(
-        icon: Icon(Icons.lightbulb_outlined), //icon of text field
+        icon: Icon(Icons.lightbulb_outlined),
         enabled: !state.status.isLoadingOrSuccess,
         labelText: 'Task',
         hintText: hintText,
       ),
-      maxLength: 50,
       inputFormatters: [
-        LengthLimitingTextInputFormatter(50),
         FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9\s]')),
       ],
       onChanged: (value) {
@@ -123,31 +121,31 @@ class _DescriptionField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-
     final state = context.watch<EditTodoBloc>().state;
-    final hintText = state.initialTodo?.description ?? '';
+    final hintText = state.description;
 
     return TextField(
-      key: const Key('editTodoView_description_textFormField'),
-      // controller: dateController, //editing controller of this TextField
-      decoration: const InputDecoration(
-          icon: Icon(Icons.calendar_today_outlined), labelText: "Deadline?"),
-      readOnly: true,
-      onTap: () async {
-        DateTime? pickedDate = await showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime.now(),
-            lastDate: DateTime(2101));
-        if (pickedDate != null) {
-          String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-          print('============= formattedDate');
-          print(formattedDate);
-        } else {
-          print('=============');
-          print('not selected');
-        }
-      },
-    );
+        key: const Key('editTodoView_description_textFormField'),
+        decoration: InputDecoration(
+          icon: Icon(Icons.calendar_today_outlined),
+          labelText: "Deadline",
+          hintText: hintText,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+        ),
+        readOnly: true,
+        onTap: () async {
+          DateTime? pickedDate = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime(2101));
+          if (pickedDate != null) {
+            String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+            print(formattedDate);
+            context
+                .read<EditTodoBloc>()
+                .add(EditTodoDescriptionChanged(formattedDate));
+          }
+        });
   }
 }
