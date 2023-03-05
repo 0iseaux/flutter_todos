@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_todos/edit_todo/edit_todo.dart';
 import 'package:flutter_todos/l10n/l10n.dart';
 import 'package:todos_repository/todos_repository.dart';
+import 'package:intl/intl.dart';
 
 class EditTodoPage extends StatelessWidget {
   const EditTodoPage({super.key});
@@ -99,8 +100,9 @@ class _TitleField extends StatelessWidget {
       key: const Key('editTodoView_title_textFormField'),
       initialValue: state.title,
       decoration: InputDecoration(
+        icon: Icon(Icons.lightbulb_outlined), //icon of text field
         enabled: !state.status.isLoadingOrSuccess,
-        labelText: l10n.editTodoTitleLabel,
+        labelText: 'Task',
         hintText: hintText,
       ),
       maxLength: 50,
@@ -125,21 +127,26 @@ class _DescriptionField extends StatelessWidget {
     final state = context.watch<EditTodoBloc>().state;
     final hintText = state.initialTodo?.description ?? '';
 
-    return TextFormField(
+    return TextField(
       key: const Key('editTodoView_description_textFormField'),
-      initialValue: state.description,
-      decoration: InputDecoration(
-        enabled: !state.status.isLoadingOrSuccess,
-        labelText: l10n.editTodoDescriptionLabel,
-        hintText: hintText,
-      ),
-      maxLength: 300,
-      maxLines: 7,
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(300),
-      ],
-      onChanged: (value) {
-        context.read<EditTodoBloc>().add(EditTodoDescriptionChanged(value));
+      // controller: dateController, //editing controller of this TextField
+      decoration: const InputDecoration(
+          icon: Icon(Icons.calendar_today_outlined), labelText: "Deadline?"),
+      readOnly: true,
+      onTap: () async {
+        DateTime? pickedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime.now(),
+            lastDate: DateTime(2101));
+        if (pickedDate != null) {
+          String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+          print('============= formattedDate');
+          print(formattedDate);
+        } else {
+          print('=============');
+          print('not selected');
+        }
       },
     );
   }
