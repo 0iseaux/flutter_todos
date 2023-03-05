@@ -33,6 +33,7 @@ class TodosOverviewView extends StatelessWidget {
         actions: const [
           TodosOverviewFilterButton(),
           TodosOverviewOptionsButton(),
+          TodosOverviewSortButton(),
         ],
       ),
       body: MultiBlocListener(
@@ -93,7 +94,7 @@ class TodosOverviewView extends StatelessWidget {
                 return Center(
                   child: Text(
                     l10n.todosOverviewEmptyText,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 );
               }
@@ -119,9 +120,11 @@ class TodosOverviewView extends StatelessWidget {
                             .add(TodosOverviewTodoDeleted(todo));
                       },
                       onTap: () {
-                        Navigator.of(context).push(
-                          EditTodoPage.route(initialTodo: todo),
-                        );
+                        if (!todo.isCompleted) {
+                          Navigator.of(context).push(
+                            EditTodoPage.route(initialTodo: todo),
+                          );
+                        }
                       },
                     ),
                 ],
