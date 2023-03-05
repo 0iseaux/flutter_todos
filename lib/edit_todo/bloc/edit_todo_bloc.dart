@@ -45,9 +45,7 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
     emit(state.copyWith(status: EditTodoStatus.loading));
     final todo = (state.initialTodo ?? Todo(title: '')).copyWith(
         title: state.title.length > 0 ? state.title : '(Untitled task)',
-        description: state.description.length > 0
-            ? state.description
-            : '(No description)');
+        description: state.description.length > 0 ? state.description : 'asap');
 
     try {
       await _todosRepository.saveTodo(todo);
