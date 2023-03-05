@@ -102,7 +102,7 @@ class _TitleField extends StatelessWidget {
       decoration: InputDecoration(
         icon: Icon(Icons.lightbulb_outlined),
         enabled: !state.status.isLoadingOrSuccess,
-        labelText: 'Task',
+        labelText: l10n.editTodoTitleLabel,
         hintText: hintText,
       ),
       inputFormatters: [
@@ -128,7 +128,7 @@ class _DescriptionField extends StatelessWidget {
         key: const Key('editTodoView_description_textFormField'),
         decoration: InputDecoration(
           icon: Icon(Icons.calendar_today_outlined),
-          labelText: "Deadline",
+          labelText: l10n.editTodoDescriptionLabel,
           hintText: hintText,
           floatingLabelBehavior: FloatingLabelBehavior.always,
         ),
