@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "todosOverviewAppBarTitle": "Flutter Todos",
+  "todosOverviewAppBarTitle": "What should I do today?",
   "@todosOverviewAppBarTitle": {
     "description": "Title text shown in the AppBar of the Todos Overview Page"
   },
@@ -12,7 +12,7 @@
   "@todosOverviewFilterAll": {
     "description": "Text shown in the filter dropdown of the Todos Overview Page for the option to display all todos"
   },
-  "todosOverviewFilterActiveOnly": "Active only",
+  "todosOverviewFilterActiveOnly": "Incomplete only",
   "@todosOverviewFilterActiveOnly": {
     "description": "Text shown in the filter dropdown of the Todos Overview Page for the option to display active todos only"
   },
@@ -28,7 +28,7 @@
   "@todosOverviewClearCompletedButtonText": {
     "description": "Button text shown in the options dropdown of the Todos Overview Page that deletes all completed todos"
   },
-  "todosOverviewEmptyText": "No todos found with the selected filters.",
+  "todosOverviewEmptyText": "No todos found. Reset the filter or add a task?",
   "@todosOverviewEmptyText": {
     "description": "Text shown in the Todos Overview Page when no todos are found with the selected filters"
   },
@@ -53,17 +53,21 @@
   "@todosOverviewOptionsTooltip": {
     "description": "Tooltip text shown in the options dropdown of the Todos Overview Page"
   },
-  "todosOverviewOptionsMarkAllComplete": "Mark all as completed",
+  "todosOverviewOptionsMarkAllComplete": "Woohoo! I've done everything!",
   "@todosOverviewOptionsMarkAllComplete": {
     "description": "Button text shown in the options dropdown of the Todos Overview Page that marks all todos as complete"
   },
-  "todosOverviewOptionsMarkAllIncomplete": "Mark all as incomplete",
+  "todosOverviewOptionsMarkAllIncomplete": "Ooops, I've done nothing!",
   "@todosOverviewOptionsMarkAllIncomplete": {
     "description": "Button text shown in the options dropdown of the Todos Overview Page that marks all todos as incomplete"
   },
   "todosOverviewOptionsClearCompleted": "Clear completed",
   "@todosOverviewOptionsClearCompleted": {
     "description": "Button text shown in the options dropdown of the Todos Overview Page that deletes all completed todos"
+  },
+  "todosOverviewSortTooltip": "Sort",
+  "@todosOverviewSortTooltip": {
+    "description": "Tooltip text shown in the sort dropdown of the Todos Overview Page"
   },
   "todoDetailsAppBarTitle": "Todo Details",
   "@todoDetailsAppBarTitle": {
@@ -81,15 +85,15 @@
   "@editTodoEditAppBarTitle": {
     "description": "Title text shown in the AppBar of the Todo Edit Page when editing an existing todo"
   },
-  "editTodoAddAppBarTitle": "Add Todo",
+  "editTodoAddAppBarTitle": "New Todo",
   "@editTodoAddAppBarTitle": {
     "description": "Title text shown in the AppBar of the Todo Edit Page when adding a new todo"
   },
-  "editTodoTitleLabel": "Title",
+  "editTodoTitleLabel": "Task",
   "@editTodoTitleLabel": {
     "description": "Label text shown in the title input field of the Todo Edit Page"
   },
-  "editTodoDescriptionLabel": "Description",
+  "editTodoDescriptionLabel": "Deadline",
   "@editTodoDescriptionLabel": {
     "description": "Label text shown in the description input field of the Todo Edit Page"
   },
@@ -97,7 +101,7 @@
   "@editTodoSaveButtonTooltip": {
     "description": "Tooltip text shown in the save button on the Todo Edit Page"
   },
-  "statsAppBarTitle": "Stats",
+  "statsAppBarTitle": "My Productivity Stats",
   "@statsAppBarTitle": {
     "description": "Title text shown in the AppBar of the Stats Page"
   },
@@ -105,7 +109,7 @@
   "@statsCompletedTodoCountLabel": {
     "description": "Label text shown in the completed todos count section of the Stats Page"
   },
-  "statsActiveTodoCountLabel": "Active todos",
+  "statsActiveTodoCountLabel": "Incomplete todos",
   "@statsActiveTodoCountLabel": {
     "description": "Label text shown in the active todos count section of the Stats Page"
   }
