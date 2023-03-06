@@ -32,8 +32,8 @@ class TodosOverviewView extends StatelessWidget {
         title: Text(l10n.todosOverviewAppBarTitle),
         actions: const [
           TodosOverviewFilterButton(),
-          TodosOverviewOptionsButton(),
           TodosOverviewSortButton(),
+          TodosOverviewOptionsButton(),
         ],
       ),
       body: MultiBlocListener(
@@ -85,7 +85,7 @@ class TodosOverviewView extends StatelessWidget {
         ],
         child: BlocBuilder<TodosOverviewBloc, TodosOverviewState>(
           builder: (context, state) {
-            if (state.todos.isEmpty) {
+            if (state.todos.isEmpty || state.filteredTodos.isEmpty) {
               if (state.status == TodosOverviewStatus.loading) {
                 return const Center(child: CupertinoActivityIndicator());
               } else if (state.status != TodosOverviewStatus.success) {
@@ -103,7 +103,7 @@ class TodosOverviewView extends StatelessWidget {
             return CupertinoScrollbar(
               child: ListView(
                 children: [
-                  for (final todo in state.filteredTodos)
+                  for (final todo in state.filteredSortedTodos)
                     TodoListTile(
                       todo: todo,
                       onToggleCompleted: (isCompleted) {
