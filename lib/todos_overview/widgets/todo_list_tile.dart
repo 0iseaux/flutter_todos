@@ -51,7 +51,8 @@ class TodoListTile extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        leading: Icon(Icons.lightbulb_outlined),
+        leading: Icon(Icons.lightbulb_outlined,
+            color: Color.fromARGB(241, 255, 208, 0)),
         trailing: Checkbox(
           shape: const ContinuousRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8))),

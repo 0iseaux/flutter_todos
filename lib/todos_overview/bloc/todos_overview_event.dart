@@ -56,6 +56,15 @@ class TodosOverviewFilterChanged extends TodosOverviewEvent {
   List<Object> get props => [filter];
 }
 
+class TodosOverviewSortChanged extends TodosOverviewEvent {
+  const TodosOverviewSortChanged(this.sort);
+
+  final TodosViewSort sort;
+
+  @override
+  List<Object> get props => [sort];
+}
+
 class TodosOverviewToggleAllRequested extends TodosOverviewEvent {
   const TodosOverviewToggleAllRequested();
 }

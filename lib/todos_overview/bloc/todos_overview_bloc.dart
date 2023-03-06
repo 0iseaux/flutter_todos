@@ -15,8 +15,9 @@ class TodosOverviewBloc extends Bloc<TodosOverviewEvent, TodosOverviewState> {
     on<TodosOverviewTodoCompletionToggled>(_onTodoCompletionToggled);
     on<TodosOverviewTodoDeleted>(_onTodoDeleted);
     on<TodosOverviewUndoDeletionRequested>(_onUndoDeletionRequested);
-    on<TodosOverviewTodoSaved>(_onTodoSaved); // ??
+    on<TodosOverviewTodoSaved>(_onTodoSaved);
     on<TodosOverviewFilterChanged>(_onFilterChanged);
+    on<TodosOverviewSortChanged>(_onSortChanged);
     on<TodosOverviewToggleAllRequested>(_onToggleAllRequested);
     on<TodosOverviewClearCompletedRequested>(_onClearCompletedRequested);
   }
@@ -83,6 +84,13 @@ class TodosOverviewBloc extends Bloc<TodosOverviewEvent, TodosOverviewState> {
     Emitter<TodosOverviewState> emit,
   ) {
     emit(state.copyWith(filter: () => event.filter));
+  }
+
+  void _onSortChanged(
+    TodosOverviewSortChanged event,
+    Emitter<TodosOverviewState> emit,
+  ) {
+    emit(state.copyWith(sort: () => event.sort));
   }
 
   Future<void> _onToggleAllRequested(
