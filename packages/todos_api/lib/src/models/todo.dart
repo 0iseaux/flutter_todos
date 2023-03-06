@@ -48,7 +48,6 @@ class Todo extends Equatable {
 
   /// The description of the `todo`.
   ///
-  /// Defaults to an empty string.
   final String description;
 
   /// Whether the `todo` is completed.
