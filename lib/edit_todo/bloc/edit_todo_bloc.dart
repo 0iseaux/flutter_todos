@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:todos_repository/todos_repository.dart';
+import 'package:intl/intl.dart';
 
 part 'edit_todo_event.dart';
 part 'edit_todo_state.dart';
@@ -45,7 +46,9 @@ class EditTodoBloc extends Bloc<EditTodoEvent, EditTodoState> {
     emit(state.copyWith(status: EditTodoStatus.loading));
     final todo = (state.initialTodo ?? Todo(title: '')).copyWith(
         title: state.title.length > 0 ? state.title : '(Untitled task)',
-        description: state.description.length > 0 ? state.description : 'asap');
+        description: state.description.length > 0
+            ? state.description
+            : DateFormat('yyyy-MM-dd').format(DateTime.now()));
 
     try {
       await _todosRepository.saveTodo(todo);

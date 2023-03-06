@@ -141,7 +141,6 @@ class _DescriptionField extends StatelessWidget {
               lastDate: DateTime(2101));
           if (pickedDate != null) {
             String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-            print(formattedDate);
             context
                 .read<EditTodoBloc>()
                 .add(EditTodoDescriptionChanged(formattedDate));
