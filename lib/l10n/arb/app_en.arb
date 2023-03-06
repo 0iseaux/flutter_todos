@@ -28,7 +28,7 @@
   "@todosOverviewClearCompletedButtonText": {
     "description": "Button text shown in the options dropdown of the Todos Overview Page that deletes all completed todos"
   },
-  "todosOverviewEmptyText": "No todos found. Reset the filter or add a task?",
+  "todosOverviewEmptyText": "No todos :( Wanna add a task or reset the filter?",
   "@todosOverviewEmptyText": {
     "description": "Text shown in the Todos Overview Page when no todos are found with the selected filters"
   },
