@@ -85,7 +85,7 @@ class TodosOverviewView extends StatelessWidget {
         ],
         child: BlocBuilder<TodosOverviewBloc, TodosOverviewState>(
           builder: (context, state) {
-            if (state.todos.isEmpty || state.filteredTodos.isEmpty) {
+            if (state.todos.isEmpty || state.filteredSortedTodos.isEmpty) {
               if (state.status == TodosOverviewStatus.loading) {
                 return const Center(child: CupertinoActivityIndicator());
               } else if (state.status != TodosOverviewStatus.success) {
