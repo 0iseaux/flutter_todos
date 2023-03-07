@@ -17,8 +17,8 @@ class TodosOverviewState extends Equatable {
   final TodosViewSort sort;
   final Todo? lastDeletedTodo;
 
-  Iterable<Todo> get filteredTodos => filter.applyAll(todos);
-  Iterable<Todo> get filteredSortedTodos => sort.apply(filteredTodos.toList());
+  Iterable<Todo> get filteredSortedTodos =>
+      sort.apply(filter.applyAll(todos).toList());
 
   TodosOverviewState copyWith({
     TodosOverviewStatus Function()? status,
