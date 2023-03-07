@@ -19,8 +19,4 @@ extension TodosViewSortX on TodosViewSort {
         return todos;
     }
   }
-
-  // Iterable<Todo> applyAll(Iterable<Todo> todos) {
-  //   return todos.where(apply);
-  // }
 }
