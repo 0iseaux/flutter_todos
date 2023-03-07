@@ -1,11 +1,11 @@
 # Flutter Todos
 
-A learner's first flutter project based on [
+First flutter project based on [
 Felix Angelov's Flutter TodosTtutorial with flutter_bloc](https://bloclibrary.dev/#/fluttertodostutorial)
 
 ---
 
-## What has been added / modified so far
+## Additions/ modifications so far
 
 -   Date picker to set deadline (instead of description) for task
 -   Sorting functionalities: by task name or deadline
@@ -14,16 +14,16 @@ Felix Angelov's Flutter TodosTtutorial with flutter_bloc](https://bloclibrary.de
 -   UI
 -   Copies
 
-## Availibility:
+## Availibility
 
-### Platforms:
+### Platforms
 
 -   iOS
 -   Android
 -   Web
 -   Windows
 
-### Flavors:
+### Flavors
 
 -   development
 -   staging
